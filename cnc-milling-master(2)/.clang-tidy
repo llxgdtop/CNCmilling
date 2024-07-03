@@ -1,0 +1,80 @@
+---
+Checks: "clang-diagnostic-*,\
+    clang-analyzer-*,\
+    cppcoreguidelines-*,\
+    modernize-*,\
+    -modernize-use-trailing-return-type,\
+    -google-readability-todo,\
+    -altera-*,\
+    -fuchsia-*,\
+    fuchsia-multiple-inheritance,\
+    -llvm-header-guard,\
+    -llvm-include-order,\
+    -llvmlibc-*,\
+    -misc-non-private-member-variables-in-classes"
+WarningsAsErrors: true
+HeaderFilterRegex: ""
+AnalyzeTemporaryDtors: false
+FormatStyle: google
+CheckOptions:
+    #Generals
+    - key: cert-dcl16-c.NewSuffixes
+      value: "L;LL;LU;LLU"
+    - key: cert-oop54-cpp.WarnOnlyIfThisHasSuspiciousField
+      value: "0"
+    - key: cppcoreguidelines-explicit-virtual-functions.IgnoreDestructors
+      value: "1"
+    - key: cppcoreguidelines-non-private-member-variables-in-classes.IgnoreClassesWithAllMemberVariablesBeingPublic
+      value: "1"
+    - key: google-readability-braces-around-statements.ShortStatementLines
+      value: "1"
+    - key: google-readability-function-size.StatementThreshold
+      value: "800"
+    - key: google-readability-namespace-comments.ShortNamespaceLines
+      value: "10"
+    - key: google-readability-namespace-comments.SpacesBeforeComments
+      value: "2"
+    - key: modernize-loop-convert.MaxCopySize
+      value: "16"
+    - key: modernize-loop-convert.MinConfidence
+      value: reasonable
+    - key: modernize-loop-convert.NamingStyle
+      value: CamelCase
+    - key: modernize-pass-by-value.IncludeStyle
+      value: llvm
+    - key: modernize-replace-auto-ptr.IncludeStyle
+      value: llvm
+    - key: modernize-use-nullptr.NullMacros
+      value: "NULL"
+    #More specific
+    - key: "bugprone-argument-comment.StrictMode"
+      value: "true"
+    # Prefer using enum classes with 2 values for parameters instead of bools
+    - key: "bugprone-argument-comment.CommentBoolLiterals"
+      value: "true"
+    - key: "bugprone-misplaced-widening-cast.CheckImplicitCasts"
+      value: "true"
+    - key: "bugprone-sizeof-expression.WarnOnSizeOfIntegerExpression"
+      value: "true"
+    - key: "bugprone-suspicious-string-compare.WarnOnLogicalNotComparison"
+      value: "true"
+    - key: "readability-simplify-boolean-expr.ChainedConditionalReturn"
+      value: "true"
+    - key: "readability-simplify-boolean-expr.ChainedConditionalAssignment"
+      value: "true"
+    - key: "readability-uniqueptr-delete-release.PreferResetCall"
+      value: "true"
+    - key: "cppcoreguidelines-init-variables.MathHeader"
+      value: "<cmath>"
+    - key: "cppcoreguidelines-narrowing-conversions.PedanticMode"
+      value: "true"
+    - key: "readability-else-after-return.WarnOnUnfixable"
+      value: "true"
+    - key: "readability-else-after-return.WarnOnConditionVariables"
+      value: "true"
+    - key: "readability-inconsistent-declaration-parameter-name.Strict"
+      value: "true"
+    - key: "readability-qualified-auto.AddConstToQualified"
+      value: "true"
+    - key: "readability-redundant-access-specifiers.CheckFirstDeclaration"
+      value: "true"
